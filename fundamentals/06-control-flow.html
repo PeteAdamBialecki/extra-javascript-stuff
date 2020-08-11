@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript!</title>
+        <link href="styles/main.css" type="text/css" rel="stylesheet"> 
+    </head>
+    <p>
+        <h1>JavaScript Concepts</h1>
+        <caption>Control Flow</caption>
+            <p>Using <em>control flow</em> allows us to run code only under certain conditions. If/Else statements are one of the most common types of control flow.  They allow us to run code only <em>if</em> a certain condition is first met, and we can tell our code to do something <em>else</em> if that condition is NOT met.
+            </p>
+    </p>
+    <script>
+        // Sample #1:
+        var answer = prompt ( "What is the capital of Illinois?");
+        if ( answer === "Springfield" ) {
+            alert("Correct!");
+        } else {
+            alert("Sorry, " + answer + "is not correct.");
+        }
+
+        // Sample #2:
+        var favoriteAnimal = prompt("What is your favorite animal?");
+        if (favoriteAnimal === "dog") {
+            alert("Dogs are awesome!!!");
+        } else if (favoriteAnimal === "cat") {
+            alert("Cats are OK.");
+        } else {
+            alert("Good choice!");
+        }
+    </script>
+</body>
+</html>

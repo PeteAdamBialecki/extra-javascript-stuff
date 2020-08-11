@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript!</title>
+    <link href="styles/main.css" type="text/css" rel="stylesheet"> 
+</head>
+<body>
+    <h1>JavaScript Concepts</h1>
+    <caption>FIZZBUZZ!!!<br><br></caption>
+        <p><em>Generate a random whole number between 0 and 15.  If the result is divisible by 3 alert "fizz".  If the number is divisible by 5, alert "buzz", otherwise print the number to the console.</em></p>
+        <p><em>If a number is divisible by 3 AND 5, alert "fizzbuzz." If the random number is 0, it should not return fizz, buzz or fizzbuzz.</em>
+        </p>
+    <script>
+            var randomNumber = Math.round( Math.random() * 5);
+        
+            // Version #1:
+            // if ( randomNumber%3 === 0 && randomNumber != 0) {
+            //     alert("fizz");
+            // } else if (randomNumber%5 === 0 && randomNumber != 0) {
+            //     alert("buzz");
+            // } else if (randomNumber%3 === 0 && randomNumber%5 === 0) {
+            //     alert("fizzbuzz");
+            // } else {
+            //     alert(randomNumber)
+            // }
+
+            // Version #1 Refactored:
+            if ( randomNumber%3 === 0 && randomNumber != 0) {
+                if (randomNumber%5 === 0) {
+                    alert("The random number is " + randomNumber + ": "+ "FIZZBUZZ!!!");
+                } else  {
+                    alert("The random number is " + randomNumber + ": "+ "FIZZ!!")
+                }
+            } else if (randomNumber%5 === 0 && randomNumber != 0) {
+                alert("The random number is " + randomNumber + ": "+ "BUZZ!");
+            } else {
+                alert("The random number is " + randomNumber + ".")
+            }
+    </script>
+</body>
+</html>

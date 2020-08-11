@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript!</title>
+    <link href="styles/main.css" type="text/css" rel="stylesheet"> 
+</head>
+<body>
+        <h1>JavaScript Concepts</h1>
+        <caption>Additional Functions<br><br></caption>
+        <p>What if we wanted to do the same set of steps multiple times?  It would be very tiring to type out the same thing over and over again, and it would make our code very messy. <em>Functions</em> allow us to associate a command with an action.</p>
+        <p>We need the following to create a function:</p>
+        <ul>
+          <li><em>function</em> keyword</li>
+          <li>A name for the function</li>
+          <li>(Optional) Any necessary parameters, comma separated in parenthesis</li>
+          <li>Code block to be executed when function is called</li>
+        </ul>
+      <p>When you call a function, the information you pass to the function (the part in parenthesis) is called an <em>argument</em>.</p>
+      <div class="hover-hint">
+            <p>View syntax example</p>
+           <div class="hint">
+            <code>
+                <pre>
+                
+                <span class="orange">function</span> <span class="blue">sayHello</span>(name) {
+                  <span class="blue">console.log</span>(<span class="dark-orange">"Hello "</span> + name);
+                }
+                sayHello("Mark");
+               </pre>
+            </code>
+        </div>
+<script>
+    function randomNumber() {
+        console.log(Math.random());
+    }
+    randomNumber();
+</script>
+</body>
+</html>

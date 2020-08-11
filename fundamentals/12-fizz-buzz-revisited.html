@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript!</title>
+    <link href="styles/main.css" type="text/css" rel="stylesheet"> 
+</head>
+<body>
+    <h1>JavaScript Concepts</h1>
+    <caption>FIZZBUZZ!!! Revisited<br><br></caption>
+    <div class="hot-pink">  
+        <p>Print all numbers from 1 to 100 with three exceptions:</p>
+            <ul>
+                <li>If the number is divisible by 3, print fizz</li>
+                <li>If the number is divisible by 5, print buzz</li>
+                <li>If the number is divisible by 3 AND 5, print fizzbuzz</li>
+            </ul>
+    </div>
+    <div class="hover-hint">
+        <p>View syntax example</p>
+            <div class="hint">
+                <code>
+                    <pre>
+                    //prints numbers 1-10 to the console
+                    
+                    <span class="hot-pink">for</span>(<span class="hot-pink">var</span> <span class="blue">i</span> = <span class="green">0</span>; <span class="blue">i</span> &lt; <span class="green">11</span>; <span class="blue">i</span>++){
+                    <span class="blue">console.log</span>(<span class="blue">i</span>);
+                    }
+                </pre>
+            </code>
+        </div>
+    </div>
+    <script>
+        for ( var i = 1; i <= 100; i++ ) {
+            if (i%3 === 0) {
+                if(i%5 === 0) {
+                    console.log("FIZZBUZZ!!!");
+                } else {
+                    console.log("Fizz!!!");
+                }
+            } else if (i%5 === 0) {
+                console.log("Buzz!!!");
+            } else {
+                console.log(i);
+            }
+        };
+    </script>
+</body>
+</html>

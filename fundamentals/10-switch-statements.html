@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript!</title>
+    <link href="styles/main.css" type="text/css" rel="stylesheet"> 
+</head>
+<body>
+    <h1>JavaScript Concepts</h1>
+    <caption>Switch Statements<br><br></caption>
+    <div class="hover-hint">
+        <p>Syntax example:</p>
+            <div class="hint">
+                <code>
+                    <pre>
+                        <span class="hot-pink">switch</span>(<span class="blue">n</span>) {
+                        <span class="hot-pink">case</span> <span class="blue">example1</span>:
+                        <span class="light-blue">console.log</span>(<span class="light-grey">"This code will run if n === example1 is true."</span>);
+                        <span class="hot-pink">break</span>;
+                        <span class="hot-pink">case</span> <span class="blue">example2</span>:
+                        <span class="light-blue">console.log</span>(<span class="light-grey">"This code will run if n === example2 is true."</span>);
+                        <span class="hot-pink">break</span>;
+                        <span class="hot-pink">case</span> <span class="blue">example3</span>:
+                        <span class="light-blue">console.log</span>(<span class="light-grey">"This code will run if n === example3 is true."</span>);
+                        <span class="hot-pink">break</span>;
+                        <span class="hot-pink">default</span>:
+                        <span class="light-blue">console.log</span>(<span class="light-grey">"Default will run if no cases are met."</span>);
+                        <span class="hot-pink">break</span>;
+                        }
+                    </pre>
+                </code>
+           </div>
+        </div>
+    <script>
+        var sign = prompt("What is your astrological sign?").toLowerCase();
+        alert("Currently reading your future...");
+        switch(sign) {
+            case "aquarius":
+                alert("You're on top of the world today, Aquarius. Enjoy the view! You're unstoppable. Friends and family alike revel in your good mood. You're materially and spiritually generous, and by day's end people could be lined up to partake of the bounty. Try to curb your enthusiasm and use some discretion. It would be better to give more to a worthy few than give less to many.");
+                break;
+            case "pisces":
+                alert("This dreamy day is tailor made to your sensibilities. You may find it hard to focus on the daily issues when you're caught up in your fantasies. Go ahead and give in to the day's dreamlike state. Write in your journal or spend some time rummaging around in the attic. You'll be amazed at what you find. Expect to spend hours looking through scrapbooks and reliving your childhood.");
+                break;
+            case "aries":
+                alert("Your artistic side likes to mingle with people who are a shade off normal. You call them eccentric - other people call them crazy! From your viewpoint, the crazier the better! You feel such people add interest to the lives of anyone they come in contact with. Take a look in the mirror. You may see that you're such a person. Your energy and creativity add sparkle to others' lives.");
+                break;
+            case "taurus":
+                alert("You're conscientious where your health is concerned. You're one of the rare few who exercise and eat nutritious meals. Today you might want to expand your repertoire of medical remedies. If you've been struggling to shake a cold or allergy, consider some alternative medicines. They're moving more into the mainstream. Chinese herbs and acupuncture could just be what the New Age doctor ordered!");
+                break;
+            case "gemini":
+                alert("This is bound to turn into a silly day if you let it, Gemini. Your best bet is to give in to the strange patterns at work. Communication seems blocked at every turn. You can expect technical difficulties like phone malfunctions or computer crashes. You and your mate will speak in two different languages. No one seems able to get a point across. Don't fight it. Just laugh. All will be normal again tomorrow.");
+                break;
+            case "cancer":
+                alert("This isn't a day to make firm commitments, Cancer, especially concerning relationships. Today's atmosphere highlights unification and reconciliation, but don't take this as a sign that you're now bound for life. Proceed carefully before making any long-term decisions. If you're about to take a big step at work or in your personal life, try to delay your decision until your thoughts are clearer.");
+                break;
+            case "leo":
+                alert("You're so upbeat and optimistic by nature that it's difficult for you to accept certain failures. That may be what you're thinking today as you reflect on recent humanitarian efforts. Try not to take such a short-sighted attitude. You're making a difference, even though it may not always be apparent. Continue on this path. Ultimately, you will see how worthwhile the journey is.");
+                break;
+            case "virgo":
+                alert("You're usually very good at concentrating and getting your chores done, even when chaos reigns around you. This likely won't be the case today. Even you will come under the influence of the erratic. It's too hard to get much done with all the commotion. Don't fret about your lack of productivity. This is one day. Relax and have some fun. Tomorrow you can get down to work.");
+                break;
+            case "libra":
+                alert("You have strong psychic vision, Libra. Some people might say that you're prophetic, but your gift is a combination of creativity and intuition. You can use this to benefit others, and in fact have often done so. You're known for your good advice. Have some restraint today. People are listening closely to what you say. If you advise someone to do something crazy, they might do it!");
+                break;
+            case "scorpio":
+                alert("The element of water predominates today. You will likely be aware of it by the strong tides of feeling in your household, Scorpio. Some family members may be unhappy. They may need more independence or look to you for more attention and affection. It's hard to strike the right balance, as you will discover. Do your best to satisfy everyone, making sure that your own needs don't get overlooked.");
+                break;
+            case "sagitarius":
+                alert("There's a carefree, almost childlike atmosphere to today that suits you just fine, Sagittarius. You've been working extraordinarily hard lately and need to relax and unwind a bit. This is a day for doing cartwheels across an open field. You aren't the only one who feels this way - it's positively contagious. Make the most of this wonderful feeling. This is a day for play not work.");
+                break;
+            case "capricorn":
+                alert("This is a day for rest and relaxation, Capricorn. Take advantage of the calm atmosphere to center yourself and focus on what's important in your life. You've been going at full speed, and it's possible that your family feels somewhat neglected. Spend some quality time with loved ones. They miss you and will welcome your company. Other concerns come and go, but family is forever.");
+                break;
+            default:
+                alert("Please enter a valid sign. Thanks.");
+                break;
+            }
+        alert("Thanks.  Hope that helps.  Take care.")
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', 'Open Sans', sans-serif;
+}
+
+/* The following prevents highlighting on double clicking.  Might be useful!!!!!!! */
+* {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+body {
+    background-color: #666;
+    margin: 30px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+h2 span {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+h3, h1 span {
+    color: #ff6bbc;
+}
+
+label {
+    margin-top: 30px;
+    display: block;
+    text-transform: uppercase;
+    color: #333;
+    letter-spacing: 2px;
+}
+
+input, textarea {
+    width: 50%;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #cdcfcf;
+    margin-top: 5px;
+    padding: 10px;
+    color: #333;
+    background-color: #f6f8f8;
+}
+
+button {
+    background: #ff6bbc;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    padding: 15px 30px;
+    cursor: pointer;
+    text-shadow: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+li {
+    cursor: pointer;
+}
+
+#helpText {
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+#helpText span {
+    display: none;
+    color: #fff;
+}
+
+#helpText:before {
+    font-family: "Material Icons";
+    content: "\E8FD";
+    color: #ff6bbc;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 23px;
+}
+
+.strike {
+    text-decoration: line-through;
+    color: dodgerblue;
+    font-weight: 100;
+}

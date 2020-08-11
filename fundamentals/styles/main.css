@@ -1,0 +1,365 @@
+/*----------- Main Styles -----*/
+body {
+    background: #292929;
+    color: #eaeaea;
+    padding: 0 16px;
+    font: 100% "Open Sans", Helvetica, Arial, sans-serif;
+}
+h1 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+p {
+   font-size: 1em;
+   line-height: 1.6;
+   max-width: 800px;
+   min-width: 300px;
+}
+em {
+  /* color: #cc527a; */
+  color: #52cc66;
+}
+code span {
+    font-weight: lighter;
+}
+a , li, code {
+    background: #292929;
+    color: #eaeaea;
+    padding: 0 16px;
+    font: 16px "Open Sans", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    font-weight: lighter;
+}
+a:hover {
+    text-decoration: underline;
+}
+td {
+    background: #292929;
+    color: #eaeaea;
+    font: 16px "Open Sans", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    font-weight: 100;
+    display: inline;
+    padding: 0 0 0 10px;
+    text-indent: 1.5em;
+}
+
+#zombie {
+  text-align: -webkit-center;
+  width: 100%;
+}
+
+#zombie-landscape {
+    width: 100%;
+    transition: .3s ease-in-out;
+}
+#zombie-landscape:hover {
+    transition: .3s ease-in-out;
+    height: 489px;
+}
+figure {
+    overflow: hidden;
+}
+figure:hover {
+    overflow: hidden;
+    background-color: red;
+    height: 489px;
+}
+.hover06 figure img {
+	-webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(0) scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover06 figure:hover img {
+	-webkit-transform: rotate(0) scale(1);
+    transform: rotate(10deg) scale(1.5);
+    width:300%;
+    opacity: 1;
+	-webkit-animation: flash 1.5s;
+    animation: flash 1.5s;
+    cursor: crosshair;
+}
+@-webkit-keyframes flash {
+	0% {
+        opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+        opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.column::after {
+	content: '';
+	clear: both;
+	display: block;
+}
+.column div {
+	position: relative;
+	float: left;
+	width: 100%;
+	margin: 0 0 0 25px;
+	padding: 0;
+}
+.column div {
+	margin-left: 0;
+}
+.column div span {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	z-index: -1;
+	display: block;
+	width: 300px;
+	margin: 0;
+	padding: 0;
+	color: #444;
+	font-size: 18px;
+	text-decoration: none;
+	text-align: center;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	opacity: 0;
+}
+
+/*------- Styles for Hint -------*/
+.hover-hint p {
+   border: 1px solid #cc527a ;
+   font-size: 0.8em;
+   margin: 30px 0 0 0;
+   padding: 10px;
+   text-align: center;
+   text-transform: uppercase; 
+   width: 150px;
+}
+.hover-hint .hint {
+   visibility: hidden;
+   opacity: 0;
+   -moz-transition: visibility 1s, opacity 1s;
+   -webkit-transition: visibility 1s, opacity 1s;
+   transition: visibility 1s, opacity 1s;
+}
+.hover-hint:hover p {
+   outline: 1px solid #cc527a;
+}
+.hover-hint:hover .hint {
+   visibility: visible;
+   opacity: 1;
+}
+
+.hover-hint pre {
+   min-width: 200px;
+   max-width: 400px;
+   
+}
+/*---- Syntax Colors -----*/
+.hot-pink {
+   color: #e8175d;
+}
+.blue {
+   color: #227cbe;
+}
+.light-blue {
+   color: #8bc0e6;
+}
+.light-grey {
+   color: #a8a7a7;   
+}
+.green {
+ color: #61af12;
+}
+
+/*----------Friends!--------*/
+
+.friend {
+  margin: 60px;
+  width: 20px;
+  height: 40px;
+}
+  .head {
+    background-color: #f0f2bf;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: -15px;
+    left: 2.5px;
+  }
+
+  .armR {
+    background-color: #f0f2bf;
+    width: 20px;
+    height: 5px;
+    position: relative;
+    left: 12px;
+    top: -10px;
+    z-index: -1;
+  }
+
+  .armL {
+    background-color: #f0f2bf;
+    width: 17px;
+    height: 5px;
+    position: relative;
+    left: -12px;
+    top: -15px;
+    z-index: -1;
+  }
+
+  .legR {
+    background-color: #f0f2bf;
+    width: 25px;
+    height: 5px;
+    position: relative;
+    top: 11px;
+    left: 3px;
+    transform:rotate(80deg);
+    z-index: -1;
+  }
+
+.legL {
+    background-color: #f0f2bf;
+    width: 25px;
+    height: 5px;
+    position: relative;
+    top: 6px;
+    left: -7px;
+    transform:rotate(-80deg);
+    z-index: -1;
+  }
+
+.mark {
+  background: #0a0a33; 
+  float: left;
+}
+
+.lisa {
+  background: #88111f;
+  float: left;
+}
+
+.denny {
+  background: #38883e;
+  float: left;
+}
+
+.friend p {
+  margin-left: -10px; 
+}
+.peter {
+  background-color: #804f00;
+  float: left;
+}
+
+.steven {
+  background-color: #0093ff;
+  float: left;
+}
+
+.claudette {
+  background-color: #800071;
+  float: left;
+}
+  
+  .hideLisa {
+    visibility: hidden; 
+  }
+  
+  .hideDenny {
+    visibility: hidden; 
+  }
+  
+  .friend p {
+    margin-left: -10px; 
+  }
+
+  #object-friends {
+      display: inline-flex;
+  }
+
+  /*------ Building (with some imagination) ------*/
+.building {
+  width: 60px;
+  height: 150px;
+  background: #363636;
+  box-shadow: 7px -7px #222;
+  margin: 0 auto 20px auto;
+}
+
+.windowL {
+  background-color: #88bfc1;
+  width: 10px;
+  height: 15px;
+  margin: 10px 10px 0 13px;
+  position: relative;
+  top: 10px;
+}
+
+.windowR {
+  background: #6a77be;
+  width: 10px;
+  height: 15px;
+  margin: 10px 10px 0 10px;
+  position: relative;
+  top: -115px;
+  right: -27px;
+}
+
+/*----- JavaMug ------*/
+#coffee {
+  background-color: #fff;
+  width: 70px;
+  height: 100px;
+  margin: 20px auto;
+  position: relative;
+}
+.handle {
+  background-color: #fff;
+  position: relative;
+  height: 10px;
+  width: 20px;
+  left: 70px;
+}
+#handle1 {
+  top: 20px;
+}
+
+#handle2 {
+  width: 10px;
+  height: 60px;
+  left: 90px;
+  top: 10px;
+}
+
+#handle3 {
+  top: 0px;
+}
+
+.splash {
+  width: 7px;
+  height: 10px;
+  background: #644949;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+}
+
+#splash2 {
+  left: 10px;
+  height: 29px;
+}
+#splash3 {
+  left: 15px;
+  height: 16px;
+}
+#splash4 {
+  left: 22px;
+  height: 3px;
+  width: 8px;
+}
