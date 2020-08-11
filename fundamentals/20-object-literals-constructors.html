@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript!</title>
+    <link href="styles/main.css" type="text/css" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>JavaScript Concepts</h1>
+    <caption>Object Literals and Object Constructors</caption>
+    <br>
+    <div id="object-friends">
+        <div class="friend mark">
+            <div class="head"></div>
+            <div class="armR"></div>
+            <div class="armL"></div>
+            <div class="legR"></div>
+            <div class="legL"></div>
+            <p>Mark</p>
+        </div>
+        <div class="friend lisa">
+            <div class="head"></div>
+            <div class="armR"></div>
+            <div class="armL"></div>
+            <div class="legR"></div>
+            <div class="legL"></div>
+            <p>Lisa</p>
+        </div>
+        <div class="friend denny">
+            <div class="head"></div>
+            <div class="armR"></div>
+            <div class="armL"></div>
+            <div class="legR"></div>
+            <div class="legL"></div>
+            <p>Denny</p>
+        </div>
+    </div>
+    <div>
+        <p>Our friends are back! Let's objectify them (in a good way).</p>
+        <p>When we created our object myCoffee, we created it using what is called an <em>object literal</em>.  When we create objects this way, we are both defining and creating a single object, referred to as an <em>instance</em> of an object. </p>
+        <p>What if we want to create multiple instances of an object?  We can create something called an <em>object constructor</em>, in which we use a function to create multiple instances of an object. Each instance <em>inherits</em> the properties and methods of its constructor.</p>
+        <div class="hover-hint">
+            <p>View syntax example</p>
+            <div class="hint">
+                <code>
+                    <pre>                <span class="hot-pink">var</span><span class="blue"> myFirstObjectLiteral</span> = {
+
+                    //add necessary properties
+                    <span class="blue">exampleKey:</span> <span class="hot-pink">exampleValue</span>
+
+                    };
+
+                    <span class="blue">function</span> <span class="hot-pink">MyFirstConstructor(example)</span> {
+
+                    //add necessary properties
+                    <span class="blue">this.example</span> = <span class="hot-pink">example</span>;
+
+                    };
+                    </pre>
+                </code>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/object-literals-constructors.js"></script>
+</body>
+</html>

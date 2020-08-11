@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript!</title>
+    <link href="styles/main.css" type="text/css" rel="stylesheet"> 
+</head>
+<body>
+    <h1>JavaScript Concepts</h1>
+    <caption>Arrays<br><br></caption>
+        <p>What if we wanted to store a list of information?  Well, we can! <em>Arrays</em> allow us to store a comma separated set of values.  It can contain any combination of data types (numbers, booleans, strings, undefined, NaN).</p>
+            <div class="hover-hint"></div>
+        <p>How could we store a list of our friends?</p>
+        <div class="friend mark">
+            <div class="head"></div>
+            <div class="armR"></div>
+            <div class="armL"></div>
+            <div class="legR"></div>
+            <div class="legL"></div>
+            <p>Mark</p>
+        </div>
+        <div class="friend lisa">
+            <div class="head"></div>
+            <div class="armR"></div>
+            <div class="armL"></div>
+            <div class="legR"></div>
+            <div class="legL"></div>
+            <p>Lisa</p>
+        </div>
+      <div class="friend denny">
+          <div class="head"></div>
+          <div class="armR"></div>
+          <div class="armL"></div>
+          <div class="legR"></div>
+          <div class="legL"></div>
+        <p>Denny</p>
+      </div> 
+    <div class="friend peter">
+          <div class="head"></div>
+          <div class="armR"></div>
+          <div class="armL"></div>
+          <div class="legR"></div>
+          <div class="legL"></div>
+        <p>Peter</p>
+      </div>
+    <div class="friend steven">
+          <div class="head"></div>
+          <div class="armR"></div>
+          <div class="armL"></div>
+          <div class="legR"></div>
+          <div class="legL"></div>
+        <p>Steven</p>
+      </div>
+    <div class="friend claudette">
+          <div class="head"></div>
+          <div class="armR"></div>
+          <div class="armL"></div>
+          <div class="legR"></div>
+          <div class="legL"></div>
+        <p>Claudette</p>
+      </div>
+<script>
+
+    let friends = ["Mark", "Lisa", "Denny", "Peter", "Steven", "Claudette"];
+    function greetFriends() {
+        for( var i = 0; i < friends.length; i++ ) {
+            console.log("Oh, hi " + friends[i] + ".");
+        }
+    }
+    greetFriends();
+
+</script>
+</body>
+</html>

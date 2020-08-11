@@ -1,0 +1,14 @@
+{
+  "name": "mongodb",
+  "version": "1.0.0",
+  "description": "When setting up MongoDB, use these helpful links.  This works with OSX 10.11.6 El Capitan, Xcode 8, and MongoDB 3.4.",
+  "main": "seed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongo-hacker": "0.0.15"
+  }
+}
