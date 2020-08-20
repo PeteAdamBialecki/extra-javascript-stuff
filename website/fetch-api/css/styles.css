@@ -1032,6 +1032,7 @@ header {
     border-radius: 4px;
     margin-bottom: 2.25rem;
     cursor: pointer;
+    max-width: -webkit-fill-available;
 }
 
 @media (max-width: 720px) {
