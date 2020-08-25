@@ -12,7 +12,7 @@ html, body {
     border: 5px solid rgb(126, 125, 125);
     width: 2em;
     height: 2em;
-    overflow: hidden;
+    overflow: inherit;
     line-height: 2em;
     font-size: 2em;
     text-align: center;
