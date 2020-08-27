@@ -9,9 +9,11 @@
     <link type="text/css" rel="stylesheet" href="css/robotmazeinterface.css">
     <link type="text/css" rel="stylesheet" href="css/font-awesome.css">
     <script>
-        m = new maze(7,5);
+        m = new maze(40,20);
+
         m.setStart(1,1,"north");
-        m.setEnd(7,1);
+        m.setEnd(40,20);
+
         m.setWall(1,1,"east");
         m.setWall(1,3,"north");
         m.setWall(2,1,"north");
@@ -38,6 +40,12 @@
         m.setWall(7,3,"north");
         m.setWall(7,4,"north");
 
+
+
+
+
+
+
         r = new Robot();
 
         var i = new RobotMazeInterface(r,m,"#page");
@@ -51,7 +59,7 @@
     <br><br>
     <div class="container-fluid">
         <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-10 offset-1">
                     <div id="page">
                             Loading...
                     </div>

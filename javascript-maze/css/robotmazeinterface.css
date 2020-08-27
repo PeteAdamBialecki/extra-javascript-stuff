@@ -2,8 +2,10 @@ html, body {
     background: #c3c9cf;
 }
 
+/* TODO:  Add glowing CSS class to end point. */
+
 .maze {
-    border: 5px solid #0c1d2a;
+    border: 3px solid #0c1d2a;
     display: inline-block;
     border-radius: 7px;
     vertical-align: top;
@@ -11,12 +13,12 @@ html, body {
 }
 
 .maze .mazeRow .mazeSpace {
-    display: inline-block;
-    border: 5px solid transparent;
-    width: 2em;
-    height: 2em;
+    display: table-cell;
+    border: 2px solid transparent;
+    width: 1.2em;
+    height: 1em;
     overflow: inherit;
-    line-height: 2em;
+    line-height: 1em;
     font-size: 2em;
     text-align: center;
     position: relative;
@@ -45,7 +47,7 @@ html, body {
 .maze .mazeRow .mazeSpace i {
     display: block;
     position: absolute;
-    width: 2em;
+    width: .5em;
     color: #fff;
 }
 
@@ -55,10 +57,15 @@ html, body {
 
 div.actions {
     margin: 0;
-    padding: 2em;
+    padding: 0 2em;
     list-style: none;
     display: inline-block;
     vertical-align: top;
+}
+
+.icon-remove-circle:before {
+    content: "\f05c";
+    color: #1eb0a8;
 }
 
 div.actions i.robot {
@@ -79,12 +86,11 @@ div.actions .btn {
     text-transform: uppercase;
     text-decoration: none;
     background: #8a9ea5;
-    padding: 20px;
+    padding: 10px;
     border-radius: 5px;
     display: inline-block;
     border: none;
     font-size: .5rem;
-    ;
     transition: all 0.4s ease 0s;
 }
 
