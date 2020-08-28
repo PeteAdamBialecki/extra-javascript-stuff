@@ -1,15 +1,16 @@
 html, body {
-    background: #c3c9cf;
+    background: #be9b7b;
 }
 
 /* TODO:  Add glowing CSS class to end point. */
 
 .maze {
-    border: 3px solid #0c1d2a;
+    border: 3px solid #3c2f2f;
     display: inline-block;
     border-radius: 7px;
     vertical-align: top;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07), 0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07);
+    background: #fff4e6;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
 
 .maze .mazeRow .mazeSpace {
@@ -24,35 +25,46 @@ html, body {
     position: relative;
 }
 
+.icon-screenshot:before {
+    content: "\f05b";
+    color: #aaa;
+}
+
 .maze .mazeRow .mazeSpace.north {
-    border-top-color: #0c1d2a;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07), 0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07);
+    border-top-color: #4b3832;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
 
 .maze .mazeRow .mazeSpace.east {
-    border-right-color: #0c1d2a;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07), 0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07);
+    border-right-color: #4b3832;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
 
 .maze .mazeRow .mazeSpace.south {
-    border-bottom-color: #0c1d2a;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07), 0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07);
+    border-bottom-color: #4b3832;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
 
 .maze .mazeRow .mazeSpace.west {
-    border-left-color: #0c1d2a;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07), 0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07);
+    border-left-color: #4b3832;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
 
 .maze .mazeRow .mazeSpace i {
+    margin-top: -2px;
     display: block;
     position: absolute;
-    width: .5em;
-    color: #fff;
+    color: #ebf4f6;
+    margin-left: 5px;
+}
+
+.icon-remove-circle:before {
+    content: "\f05c";
+    color: #42854a;
 }
 
 .maze .mazeRow .mazeSpace i.robot {
-    color: #3c4f58;
+    color: #000;
 }
 
 div.actions {
@@ -63,16 +75,12 @@ div.actions {
     vertical-align: top;
 }
 
-.icon-remove-circle:before {
-    content: "\f05c";
-    color: #1eb0a8;
-}
-
 div.actions i.robot {
     display: block;
     text-align: center;
     font-size: 3em;
     margin-top: .5em;
+    color: #3c2f2f;
 }
 
 div.actions .btn {
@@ -82,10 +90,10 @@ div.actions .btn {
 }
 
 .btn {
-    color: #e8e4ec !important;
+    color: #ebf4f6 !important;
     text-transform: uppercase;
     text-decoration: none;
-    background: #8a9ea5;
+    background: #854442;
     padding: 10px;
     border-radius: 5px;
     display: inline-block;
@@ -95,10 +103,38 @@ div.actions .btn {
 }
 
 .btn:hover {
-    background: #3c4f58;
+    background: #4b3832;
     letter-spacing: 0px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
     transition: all 0.4s ease 0s;
 }
+
+
+
+@-webkit-keyframes pulse {
+    0% { box-shadow:0 0 0px red, inset 0 0 0px red; }
+    50% { box-shadow:0 0 100px red, inset 0 0 0px red; }
+    100% { box-shadow: 200px 100px 300px red, inset 0 0 0px red; }
+  }
+  
+  
+  .icon-remove-circle:before {
+    background-color:transparent;
+    width: 18px;
+    height: 15px;
+    border-radius:500px;
+    box-shadow: 100px 0 8px #42854a, inset 0 0 80px #42854a;
+    -webkit-animation: pulse 2s linear 1s infinite;
+  }
+  .icon-remove-circle:before {
+    display:block;
+    text-align: center;
+    line-height: 20px;
+    font-family:sans-serif;
+    font-weight:100;
+    font-size:24px;
+    color: #42854a;
+    text-shadow: 0 0 40px #42854a;
+  }
