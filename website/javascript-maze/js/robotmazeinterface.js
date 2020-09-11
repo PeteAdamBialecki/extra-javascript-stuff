@@ -98,7 +98,7 @@ RobotMazeInterface.prototype.renderSpace = function (x,y) {
     eastRobot: "icon-arrow-right",
     southRobot: "icon-arrow-down",
     westRobot: "icon-arrow-left",
-    northRobotStart: "icon-circle-arrow-up",
+    northRobotStart: "icon-circle-arrow-down",
     eastRobotStart: "icon-circle-arrow-right",
     southRobotStart: "icon-circle-arrow-down",
     westRobotStart: "icon-circle-arrow-left",
@@ -183,7 +183,7 @@ RobotMazeInterface.prototype.renderControls = function () {
                       callExitMaze();
                   }
                  return result;
-              }, 100);
+              }, 100/4);
           })();
         }
       };
