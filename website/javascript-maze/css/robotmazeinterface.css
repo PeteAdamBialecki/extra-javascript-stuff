@@ -1,8 +1,10 @@
 html, body {
-    background: #c3c9cf;
+    background: #8a9da5;
 }
 
-/* TODO:  Add glowing CSS class to end point. */
+#page {
+    display: inline-flex;
+}
 
 .maze {
     border: 3px solid #0c1d2a;
@@ -92,7 +94,7 @@ div.actions .btn {
     color: #ebf4f6 !important;
     text-transform: uppercase;
     text-decoration: none;
-    background: #8a9ea5;
+    background: #536975;
     padding: 10px;
     border-radius: 5px;
     display: inline-block;
