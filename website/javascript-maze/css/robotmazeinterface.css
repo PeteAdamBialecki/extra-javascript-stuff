@@ -6,6 +6,10 @@ html, body {
     display: inline-flex;
 }
 
+#mazeContainer {
+    padding: 0 0 50px 0;
+}
+
 .maze {
     border: 3px solid #0c1d2a;
     display: inline-block;
