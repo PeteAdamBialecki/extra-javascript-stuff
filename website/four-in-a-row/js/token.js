@@ -22,7 +22,6 @@ class Token {
         if (this.columnLocation > 0) {
             this.htmlToken.style.left = this.offsetLeft - 76;
             this.columnLocation -= 1;
-            console.log(this);
         };
     };
     moveRight(columns) {
@@ -37,24 +36,4 @@ class Token {
             top: (target.y * target.diameter)
         }, 750, 'easeOutBounce', reset);
     };
-};
-var right = document.getElementById("right-button");
-if (right.addEventListener) {
-    right.addEventListener("click", function() {
-        alert("Right Clicked");
-    }, false);
-};
-
-var left = document.getElementById("left-button");
-if (left.addEventListener) {
-    left.addEventListener("click", function() {
-        alert("Left Clicked");
-    }, false);
-};
-
-var drop = document.getElementById("left-button");
-if (drop.addEventListener) {
-    drop.addEventListener("click", function() {
-        alert("Dropped");
-    }, false);
 };

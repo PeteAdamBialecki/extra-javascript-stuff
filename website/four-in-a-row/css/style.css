@@ -189,3 +189,7 @@ circle {
     font-family: 'Arial', sans-serif;
     font-size: 25px;
 }
+
+#game-scene {
+    display: none;
+}
