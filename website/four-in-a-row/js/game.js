@@ -59,7 +59,7 @@ class Game {
                 this.gameOver('No more tokens');
             }
         } else {
-            this.gameOver(`${target.owner.name} Wins!`)
+            this.gameOver(`${target.owner.name} wins!`)
         };
     };
     checkForWin(target) {
