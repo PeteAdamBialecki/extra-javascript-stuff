@@ -1,12 +1,17 @@
 /* BACKGROUND AND BODY */
+
+html {
+    background: #373737;
+}
+
 body {
     margin: 0;
     padding: 0;
     background-color: #737373;
-	font-family: 'Arial', sans-serif;
-	font-size: 1.5em;
-	color: white;
-	text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
 }
 
 h3 {
@@ -19,6 +24,10 @@ p {
     font-size: 20px;
     color: #fff;
     font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+section, footer {
+    background: #737373;
 }
 
 #table {
@@ -44,45 +53,45 @@ p {
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-#begin-game {
-	width: 200px;
-	background-color: #6693dd;
-	border-radius: 8px;
+#begin-game, #restart-game {
+    width: 200px;
+    background-color: #6693dd;
+    border-radius: 8px;
     color: #fff;
-	padding: 25px;
-	position: initial;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	top: 200px;
-	z-index: 200;
-	cursor: pointer;
-	border: none;
+    padding: 25px;
+    position: initial;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 200px;
+    z-index: 200;
+    cursor: pointer;
+    border: none;
     font-family: 'Arial', sans-serif;
     font-size: 25px;
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.2);
-
 }
 
 /* BOARD AND PIECES */
+
 #game-board {
-	position: relative;
-	width: 548px;
-	margin: 0 auto;
-	border: 8px solid #d0e1f9;
-	height: 472px;
-	border-radius: 7px;
-	float: left;
+    position: relative;
+    width: 548px;
+    margin: 0 auto;
+    border: 8px solid #d0e1f9;
+    height: 472px;
+    border-radius: 7px;
+    float: left;
     z-index: 15;
     box-sizing: border-box;
 }
 
 #game-board-underlay {
     position: absolute;
-	width: 548px;
-	height: 472px;
+    width: 548px;
+    height: 472px;
     box-sizing: border-box;
-	margin: 0 auto;
+    margin: 0 auto;
     left: 0;
     right: 0;
     border: 16px solid transparent;
@@ -92,14 +101,14 @@ p {
     margin: 0 auto;
     width: 750px;
     margin-top: 100px;
-	opacity: 0;
+    opacity: 0;
 }
 
 .token {
     width: 60px;
     height: 60px;
-	transform: scale(1.1);
-	transform-origin: center;
+    transform: scale(1.1);
+    transform-origin: center;
     border-radius: 100%;
     position: absolute;
     top: -50px;
@@ -111,11 +120,10 @@ circle {
 
 .cast-shadow {
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.2);
-
 }
 
-
 /* BOARD STAND */
+
 .stand-container {
     float: left;
     width: 100px;
@@ -163,53 +171,56 @@ circle {
     top: 350px;
 }
 
-
 /* TEXT CONTENT */
+
 #game-over {
     display: none;
     font-size: 30px;
     position: absolute;
-	z-index: 100;
-	top: -60px;
-	left: 0;
-	right: 0;
+    z-index: 100;
+    top: -60px;
+    left: 0;
+    right: 0;
 }
 
 .game-button {
-	width: 200px;
-	background-color: #4d648d;
-	border-radius: 8px;
+    width: 200px;
+    background-color: #4d648d;
+    border-radius: 8px;
     color: #fff;
-	padding: 15px;
-	left: 0;
-	right: 0;
-	top: 200px;
+    padding: 15px;
+    left: 0;
+    right: 0;
+    top: 200px;
     z-index: 200;
     margin: 20px;
-	cursor: pointer;
-	border: none;
+    cursor: pointer;
+    border: none;
     font-family: 'Arial', sans-serif;
     font-size: 25px;
 }
 
-#game-scene {
+#game-scene, #restart-game {
     display: none;
 }
 
-
-.effect7
-{
-    position:relative;
-    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+#restart-container {
+    margin-top: 20px;
 }
+
+.effect7 {
+    position: relative;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
 .effect7:before, .effect7:after {
     content: "";
     position: absolute;
     z-index: -1;
-    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
-    -moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     box-shadow: 0 0 180px rgb(185 185 185 / 80%);
     top: 0;
     bottom: 0;
@@ -218,13 +229,13 @@ circle {
     -moz-border-radius: 100px / 10px;
     border-radius: 100px / 10px;
 }
-.effect7:after
-{
-    right:10px;
-    left:auto;
-    -webkit-transform:skew(8deg) rotate(3deg);
-       -moz-transform:skew(8deg) rotate(3deg);
-        -ms-transform:skew(8deg) rotate(3deg);
-         -o-transform:skew(8deg) rotate(3deg);
-            transform:skew(8deg) rotate(3deg);
+
+.effect7:after {
+    right: 10px;
+    left: auto;
+    -webkit-transform: skew(8deg) rotate(3deg);
+    -moz-transform: skew(8deg) rotate(3deg);
+    -ms-transform: skew(8deg) rotate(3deg);
+    -o-transform: skew(8deg) rotate(3deg);
+    transform: skew(8deg) rotate(3deg);
 }
