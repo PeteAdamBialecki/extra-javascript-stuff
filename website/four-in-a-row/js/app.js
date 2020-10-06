@@ -8,6 +8,10 @@ document.getElementById('begin-game').addEventListener('click', function () {
     document.getElementById('table').style.display = 'block';
 });
 
+document.getElementById('restart-game').addEventListener('click', function () {
+    document.getElementById('restart-game').style.display = 'none';
+});
+
 document.addEventListener('keydown', function (event) {
     game.handleKeydown(event);
 });

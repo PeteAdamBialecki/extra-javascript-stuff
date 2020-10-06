@@ -59,7 +59,8 @@ class Game {
                 this.gameOver('No more tokens');
             }
         } else {
-            this.gameOver(`${target.owner.name} wins!`)
+            this.gameOver(`${target.owner.name} wins!`);
+            document.getElementById('restart-game').style.display = 'block';
         };
     };
     checkForWin(target) {
