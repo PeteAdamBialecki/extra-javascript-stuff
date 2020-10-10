@@ -37,8 +37,12 @@ function game() {
     ctx.fillStyle = "lime";
     for (var i = 0; i < trail.length; i++) {
         ctx.fillRect(trail[i].x * gs, trail[i].y * gs, gs - 2, gs - 2);
-        if (trail[i].x == px && trail[i].y == py) {
+        if (trail.length == 0) {
+            console.log("asdf");
+        } else if (trail[i].x == px && trail[i].y == py) {
+            document.getElementById("scoreNumber").innerHTML = "Go";
             tail = 1;
+            document.getElementById("failMessage").style.display = "block";
         }
     }
 
@@ -48,7 +52,7 @@ function game() {
     }
 
     if (ax == px && ay == py) {
-        console.log(trail.length);
+        document.getElementById("scoreNumber").innerHTML = trail.length + 1;
         tail++;
         ax = Math.floor(Math.random() * tc);
         ay = Math.floor(Math.random() * tc);
@@ -58,6 +62,9 @@ function game() {
     ctx.fillRect(ax * gs, ay * gs, gs - 2, gs - 2);
 }
 function keyPush(evt) {
+    document.getElementById("failMessage").style.display = "none";
+    document.getElementById("gameScore").style.display = "block";
+    document.getElementById("scoreNumber").innerHTML = trail.length;
     switch (evt.keyCode) {
         case 37:
             xv = -1;
@@ -77,3 +84,5 @@ function keyPush(evt) {
             break;
     }
 }
+
+keyPush();
