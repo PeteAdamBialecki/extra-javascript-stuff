@@ -1,3 +1,9 @@
+
+$(document).ready(function() {
+    var e = $.Event('keydown', { keyCode: 39 });// right arrow key
+    $(document).trigger(e);
+});
+
 window.onload = function () {
     canv = document.getElementById("snakeContainer");
     ctx = canv.getContext("2d");
@@ -9,7 +15,7 @@ xPosition = yPosition = 10;
 // Grid size and tile size
 gridSize = tileSize = 28;
 // Goal
-xGoal = ay = 15;
+xGoal = yGoal = 15;
 // Velocity
 xVelocity = yVelocity = 0;
 // Where it goes
@@ -37,13 +43,12 @@ function game() {
     ctx.fillStyle = "lime";
     for (var i = 0; i < trail.length; i++) {
         ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
-        if (trail.length == 0) {
-            console.log("asdf");
-            document.getElementById("failMessage").style.display = "none";
-        } else if (trail[i].x == xPosition && trail[i].y == yPosition) {
+        if (trail[i].x == xPosition && trail[i].y == yPosition) {
             document.getElementById("scoreNumber").innerHTML = "Go";
             tail = 1;
-            document.getElementById("failMessage").style.display = "block";
+            if (trail.length > 1) {
+                document.getElementById("failMessage").style.display = "block";
+            }
         }
     }
 
@@ -52,15 +57,16 @@ function game() {
         trail.shift();
     }
 
-    if (xGoal == xPosition && ay == yPosition) {
+    if (xGoal == xPosition && yGoal == yPosition) {
         document.getElementById("scoreNumber").innerHTML = trail.length + 1;
         tail++;
         xGoal = Math.floor(Math.random() * tileSize);
-        ay = Math.floor(Math.random() * tileSize);
+        yGoal = Math.floor(Math.random() * tileSize);
     }
 
     ctx.fillStyle = "red";
-    ctx.fillRect(xGoal * gridSize, ay * gridSize, gridSize - 2, gridSize - 2);
+    ctx.fillRect(xGoal * gridSize, yGoal * gridSize, gridSize - 2, gridSize - 2);
+    console.log(xGoal);
 }
 function keyPush(evt) {
     document.getElementById("failMessage").style.display = "none";
