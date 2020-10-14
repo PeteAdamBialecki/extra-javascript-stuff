@@ -2,6 +2,32 @@
 // Game Logic
 
 window.onload = function () {
+    // canvas = document.getElementById("explosionContainer");
+    // context = canvas.getContext("2d");
+    // width = canvas.width = window.innerWidth;
+    // height = canvas.height = window.innerHeight;
+    // particles = [];
+    // numparticles = 500;
+    // for (i = 0; i < numparticles; i++) {
+    //     particles.push(particle.create(width / 2, height / 2, (Math.random() * 10) + 1, Math.random() * Math.PI * 2))
+    // }
+
+    // update();
+
+    // function update() {
+    //     context.clearRect(0, 0, width, height);
+
+    //     /*position.addTo(velocity);
+    //     context.arc(position.getX(),position.getY(),10,0,2*Math.PI,false);
+    //     */
+    //     for (var i = 0; i < numparticles; i++) {
+    //         particles[i].update();
+    //         context.beginPath();
+    //         context.arc(particles[i].position.getX(), particles[i].position.getY(), 3, 0, 2 * Math.PI, false);
+    //         context.fill();
+    //     }
+    //     requestAnimationFrame(update);
+    // }
     canv = document.getElementById("snakeContainer");
     ctx = canv.getContext("2d");
     document.addEventListener("keydown", keyPush);
@@ -55,15 +81,7 @@ function game() {
     }
 
     if (xGoal == xPosition && yGoal == yPosition) {
-        console.log(xGoal + " by " + yGoal);
-
-        // click event listener
-        // $('body').on('click', function (e) {
-        //     console.log("asdf");
-        //     explode(e.pageX, e.pageY);
-        // })
-
-        explode(xGoal, yGoal);
+        // explode(xGoal, yGoal);
         document.getElementById("scoreNumber").innerHTML = trail.length + 1;
         tail++;
         xGoal = Math.floor(Math.random() * tileSize);
@@ -72,6 +90,7 @@ function game() {
     ctx.fillStyle = "red";
     ctx.fillRect(xGoal * gridSize, yGoal * gridSize, gridSize - 2, gridSize - 2);
 }
+
 function keyPush(evt) {
     document.getElementById("failMessage").style.display = "none";
     document.getElementById("gameScore").style.display = "block";
@@ -96,43 +115,44 @@ function keyPush(evt) {
     }
 }
 
-// Particle Logic
-
-// explosion construction
-function explode(x, y) {
-    var particles = 15,
-        // explosion container and its reference to be able to delete it on animation end
-        explosion = $('<div class="explosion"></div>');
-
-    // put the explosion container into the body to be able to get it's size
-    $('body').append(explosion);
-
-    // position the container to be centered on click
-    explosion.css('left', x - explosion.width() / 2);
-    explosion.css('top', y - explosion.height() / 2);
-
-    for (var i = 0; i < particles; i++) {
-        // positioning x,y of the particle on the circle (little randomized radius)
-        var x = (explosion.width() / 2) + rand(80, 150) * Math.cos(2 * Math.PI * i / rand(particles - 10, particles + 10)),
-            y = (explosion.height() / 2) + rand(80, 150) * Math.sin(2 * Math.PI * i / rand(particles - 10, particles + 10)),
-            color = rand(0, 255) + ', ' + rand(0, 255) + ', ' + rand(0, 255), // randomize the color rgb
-            // particle element creation (could be anything other than div)
-            elm = $('<div class="particle" style="' +
-                'background-color: rgb(' + color + ') ;' +
-                'top: ' + y + 'px; ' +
-                'left: ' + x + 'px"></div>');
-
-        if (i == 0) { // no need to add the listener on all generated elements
-            // css3 animation end detection
-            elm.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
-                explosion.remove(); // remove this explosion container when animation ended
-            });
-        }
-        explosion.append(elm);
-    }
+function degreeToRadians(value) {
+    return (value / 360) * 2 * Math.PI;
 }
 
-// get random number between min and max value
-function rand(min, max) {
-    return Math.floor(Math.random() * (max + 1)) + min;
+vector = {
+    _x: 0,
+    _y: 0,
+    create: function (x, y) { var obj = Object.create(this); obj._y = y; obj._x = x; return obj; },
+    getX: function () { return this._x },
+    getY: function () { return this._y },
+    setX: function (value) { this._x = value; },
+    setY: function (value) { this._y = value; },
+    getLength: function () { return Math.sqrt(this._x * this._x + this._y * this._y) },
+    getAngle: function () { return Math.atan2(this._y, this._x) },
+    setAngle: function (angle) { length = this.getLength(); this._y = Math.cos(angle) * length; this._x = Math.sin(angle) * length; },
+    setLength: function (length) { angle = this.getAngle(); this._y = Math.cos(angle) * length; this._x = Math.sin(angle) * length; },
+    add: function (v2) { vect = this.create(this._x + v2._x, this._y + v2._y); return vect; },
+    subtract: function (v2) { vect = this.create(this._x - v2._x, this._y - v2._y); return vect; },
+    multiply: function (value) { return vector.create(this._x * value, this._y * value) },
+    divide: function (value) { return vector.create(this._x / value, this._y / value) },
+    scale: function (value) { this._x = this._x * value; this._y = this._y * value; },
+    addTo: function (v2) { this._x = this._x + v2._x; this._y = this._y + v2._y },
+    subtractFrom: function (v2) { this._x = this._x - v2._x; this._y = this._y - v2._y }
+}
+
+particle = {
+    velocity: null,
+    position: null,
+    create: function (x, y, speed, angle) {
+        var obj = Object.create(this);
+        obj.velocity = vector.create(0, 0);
+
+        obj.velocity.setLength(speed);
+        obj.velocity.setAngle(angle);
+        obj.position = vector.create(x, y);
+        return obj;
+    },
+    update: function () {
+        this.position.addTo(this.velocity);
+    }
 }
