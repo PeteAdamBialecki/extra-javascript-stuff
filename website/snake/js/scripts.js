@@ -1,38 +1,26 @@
 
 // Game Logic
 
+function update() {
+    for (var i = 0; i < numparticles; i++) {
+        ctx.fillStyle = "cornflowerblue";
+        particles[i].update();
+        ctx.beginPath();
+        ctx.arc(particles[i].position.getX(), particles[i].position.getY(), 3, 10, 2 * Math.PI, false);
+        console.log()
+        ctx.fill();
+        ctx.closePath();
+    }
+    requestAnimationFrame(update);
+}
+
 window.onload = function () {
-    // canvas = document.getElementById("explosionContainer");
-    // context = canvas.getContext("2d");
-    // width = canvas.width = window.innerWidth;
-    // height = canvas.height = window.innerHeight;
-    // particles = [];
-    // numparticles = 500;
-    // for (i = 0; i < numparticles; i++) {
-    //     particles.push(particle.create(width / 2, height / 2, (Math.random() * 10) + 1, Math.random() * Math.PI * 2))
-    // }
-
-    // update();
-
-    // function update() {
-    //     context.clearRect(0, 0, width, height);
-
-    //     /*position.addTo(velocity);
-    //     context.arc(position.getX(),position.getY(),10,0,2*Math.PI,false);
-    //     */
-    //     for (var i = 0; i < numparticles; i++) {
-    //         particles[i].update();
-    //         context.beginPath();
-    //         context.arc(particles[i].position.getX(), particles[i].position.getY(), 3, 0, 2 * Math.PI, false);
-    //         context.fill();
-    //     }
-    //     requestAnimationFrame(update);
-    // }
     canv = document.getElementById("snakeContainer");
     ctx = canv.getContext("2d");
     document.addEventListener("keydown", keyPush);
     setInterval(game, 1000 / 10);
 }
+
 // Starter position
 xPosition = yPosition = 10;
 // Grid size and tile size
@@ -60,7 +48,7 @@ function game() {
     if (yPosition > tileSize - 1) {
         yPosition = 0;
     }
-    ctx.fillStyle = "#000";
+    ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canv.width, canv.height);
 
     ctx.fillStyle = "lime";
@@ -81,11 +69,20 @@ function game() {
     }
 
     if (xGoal == xPosition && yGoal == yPosition) {
-        // explode(xGoal, yGoal);
+        canvas = document.getElementById("snakeContainer");
+        ctx = canvas.getContext("2d");
+        width = xGoal;
+        height = yGoal;
+        particles = [];
+        numparticles = 100;
+        for (i = 0; i < numparticles; i++) {
+            particles.push(particle.create(width, height, (Math.random() * 10) + 1, Math.random() * Math.PI * 2))
+        }
         document.getElementById("scoreNumber").innerHTML = trail.length + 1;
         tail++;
         xGoal = Math.floor(Math.random() * tileSize);
         yGoal = Math.floor(Math.random() * tileSize);
+        update();
     }
     ctx.fillStyle = "red";
     ctx.fillRect(xGoal * gridSize, yGoal * gridSize, gridSize - 2, gridSize - 2);
@@ -93,7 +90,7 @@ function game() {
 
 function keyPush(evt) {
     document.getElementById("failMessage").style.display = "none";
-    document.getElementById("gameScore").style.display = "block";
+    document.getElementById("gameScore").style.visibility = "visible";
     document.getElementById("scoreNumber").innerHTML = trail.length;
     switch (evt.keyCode) {
         case 37:
@@ -120,36 +117,34 @@ function degreeToRadians(value) {
 }
 
 vector = {
-    _x: 0,
-    _y: 0,
-    create: function (x, y) { var obj = Object.create(this); obj._y = y; obj._x = x; return obj; },
-    getX: function () { return this._x },
-    getY: function () { return this._y },
-    setX: function (value) { this._x = value; },
-    setY: function (value) { this._y = value; },
-    getLength: function () { return Math.sqrt(this._x * this._x + this._y * this._y) },
-    getAngle: function () { return Math.atan2(this._y, this._x) },
-    setAngle: function (angle) { length = this.getLength(); this._y = Math.cos(angle) * length; this._x = Math.sin(angle) * length; },
-    setLength: function (length) { angle = this.getAngle(); this._y = Math.cos(angle) * length; this._x = Math.sin(angle) * length; },
-    add: function (v2) { vect = this.create(this._x + v2._x, this._y + v2._y); return vect; },
-    subtract: function (v2) { vect = this.create(this._x - v2._x, this._y - v2._y); return vect; },
-    multiply: function (value) { return vector.create(this._x * value, this._y * value) },
-    divide: function (value) { return vector.create(this._x / value, this._y / value) },
-    scale: function (value) { this._x = this._x * value; this._y = this._y * value; },
-    addTo: function (v2) { this._x = this._x + v2._x; this._y = this._y + v2._y },
-    subtractFrom: function (v2) { this._x = this._x - v2._x; this._y = this._y - v2._y }
+    vectorX: xGoal,
+    vectorY: yGoal,
+    create: function (xGoal, yGoal) { var obj = Object.create(this); obj.vectorY = yGoal; obj.vectorX = xGoal; return obj; },
+    getX: function () { return this.vectorX },
+    getY: function () { return this.vectorY },
+    setX: function (value) { this.vectorX = value; },
+    setY: function (value) { this.vectorY = value; },
+    getLength: function () { return Math.sqrt(this.vectorX * this.vectorX + this.vectorY * this.vectorY) },
+    getAngle: function () { return Math.atan2(this.vectorY, this.vectorX) },
+    setAngle: function (angle) { length = this.getLength(); this.vectorY = Math.cos(angle) * length; this.vectorX = Math.sin(angle) * length; },
+    setLength: function (length) { angle = this.getAngle(); this.vectorY = Math.cos(angle) * length; this.vectorX = Math.sin(angle) * length; },
+    add: function (v2) { vect = this.create(this.vectorX + v2.vectorX, this.vectorY + v2.vectorY); return vect; },
+    subtract: function (v2) { vect = this.create(this.vectorX - v2.vectorX, this.vectorY - v2.vectorY); return vect; },
+    multiply: function (value) { return vector.create(this.vectorX * value, this.vectorY * value) },
+    divide: function (value) { return vector.create(this.vectorX / value, this.vectorY / value) },
+    scale: function (value) { this.vectorX = this.vectorX * value; this.vectorY = this.vectorY * value; },
+    addTo: function (v2) { this.vectorX = this.vectorX + v2.vectorX; this.vectorY = this.vectorY + v2.vectorY },
+    subtractFrom: function (v2) { this.vectorX = this.vectorX - v2.vectorX; this.vectorY = this.vectorY - v2.vectorY }
 }
-
 particle = {
     velocity: null,
     position: null,
-    create: function (x, y, speed, angle) {
+    create: function (xGoal, yGoal, speed, angle) {
         var obj = Object.create(this);
         obj.velocity = vector.create(0, 0);
-
         obj.velocity.setLength(speed);
         obj.velocity.setAngle(angle);
-        obj.position = vector.create(x, y);
+        obj.position = vector.create(xGoal, yGoal);
         return obj;
     },
     update: function () {
