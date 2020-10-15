@@ -17,16 +17,22 @@
             <h1 class="text-center">SNAKE!</h1>
             <h2 class="text-center">JavaScript!</h2>
         </div>
+    </div>
+    <div class="container">
         <div id="failMessage" class="row" style="display: none;">
             <div id="failMessageContainer" class="col-12">
-                    <span id="failSpan">FAIL!!!</span>
+                <span id="failSpan">FAIL!!!</span>
             </div>
         </div>
-        <div class="row">
-            <canvas id="snakeContainer" width="780" height="780"></canvas>
-        </div>
-        <div id="gameScore" class="row">
-            <h3 id="scoreNumber" clas="text-primary">1</h3>
+        <div class="container" id="gameContainer">
+            <div class="row">
+                <div id="gameScore" class="col-1">
+                    <h3 id="scoreNumber" clas="text-primary">1</h3>
+                </div>
+                <div class="col-10" id="snakeCanvas">
+                    <canvas id="snakeContainer" width="780" height="780"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 </body>
