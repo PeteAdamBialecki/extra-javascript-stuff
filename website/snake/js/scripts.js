@@ -2,36 +2,33 @@
 // Game Logic
 
 window.onload = function () {
-    // canvas = document.getElementById("explosionContainer");
-    // context = canvas.getContext("2d");
-    // width = canvas.width = window.innerWidth;
-    // height = canvas.height = window.innerHeight;
-    // particles = [];
-    // numparticles = 500;
-    // for (i = 0; i < numparticles; i++) {
-    //     particles.push(particle.create(width / 2, height / 2, (Math.random() * 10) + 1, Math.random() * Math.PI * 2))
-    // }
-
-    // update();
-
-    // function update() {
-    //     context.clearRect(0, 0, width, height);
-
-    //     /*position.addTo(velocity);
-    //     context.arc(position.getX(),position.getY(),10,0,2*Math.PI,false);
-    //     */
-    //     for (var i = 0; i < numparticles; i++) {
-    //         particles[i].update();
-    //         context.beginPath();
-    //         context.arc(particles[i].position.getX(), particles[i].position.getY(), 3, 0, 2 * Math.PI, false);
-    //         context.fill();
-    //     }
-    //     requestAnimationFrame(update);
-    // }
     canv = document.getElementById("snakeContainer");
     ctx = canv.getContext("2d");
     document.addEventListener("keydown", keyPush);
     setInterval(game, 1000 / 10);
+
+    canvas = document.getElementById("snakeContainer");
+    ctx = canvas.getContext("2d");
+    width = canvas.width;
+    height = canvas.height;
+    particles = [];
+    numparticles = 500;
+    for (i = 0; i < numparticles; i++) {
+        particles.push(particle.create(width / 2, height / 2, (Math.random() * 10) + 1, Math.random() * Math.PI * 2))
+    }
+
+    update();
+
+    function update() {
+        for (var i = 0; i < numparticles; i++) {
+            ctx.fillStyle = "cornflowerblue";
+            particles[i].update();
+            ctx.beginPath();
+            ctx.arc(particles[i].position.getX(), particles[i].position.getY(), 3, 0, 2 * Math.PI, false);
+            ctx.fill();
+        }
+        requestAnimationFrame(update);
+    }
 }
 // Starter position
 xPosition = yPosition = 10;
@@ -60,7 +57,7 @@ function game() {
     if (yPosition > tileSize - 1) {
         yPosition = 0;
     }
-    ctx.fillStyle = "#000";
+    ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canv.width, canv.height);
 
     ctx.fillStyle = "lime";
