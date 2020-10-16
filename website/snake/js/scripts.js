@@ -6,7 +6,7 @@ function update() {
         ctx.fillStyle = "cornflowerblue";
         particles[i].update();
         ctx.beginPath();
-        ctx.arc(particles[i].position.getX(), particles[i].position.getY(), 3, 10, 2 * Math.PI, false);
+        ctx.arc(particles[i].position.getX(), particles[i].position.getY(), 10, 20, 2 * Math.PI, false);
         console.log()
         ctx.fill();
         ctx.closePath();
@@ -69,10 +69,11 @@ function game() {
     }
 
     if (xGoal == xPosition && yGoal == yPosition) {
+        console.log(xGoal + ", " + yGoal);
         canvas = document.getElementById("snakeContainer");
         ctx = canvas.getContext("2d");
-        width = xGoal;
-        height = yGoal;
+        width = 400;
+        height = 400;
         particles = [];
         numparticles = 100;
         for (i = 0; i < numparticles; i++) {
@@ -82,6 +83,7 @@ function game() {
         tail++;
         xGoal = Math.floor(Math.random() * tileSize);
         yGoal = Math.floor(Math.random() * tileSize);
+        console.log(xGoal + ", " + yGoal);
         update();
     }
     ctx.fillStyle = "red";
