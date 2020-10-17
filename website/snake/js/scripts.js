@@ -3,11 +3,10 @@
 
 function update() {
     for (var i = 0; i < numparticles; i++) {
-        ctx.fillStyle = "cornflowerblue";
+        ctx.fillStyle = "transparent";
         particles[i].update();
         ctx.beginPath();
         ctx.arc(particles[i].position.getX(), particles[i].position.getY(), 10, 20, 2 * Math.PI, false);
-        console.log()
         ctx.fill();
         ctx.closePath();
     }
@@ -69,9 +68,11 @@ function game() {
     }
 
     if (xGoal == xPosition && yGoal == yPosition) {
-        console.log(xGoal + ", " + yGoal);
+        // TODO: Start figuring this section out...
+        // console.log(xGoal + ", " + yGoal);
         canvas = document.getElementById("snakeContainer");
         ctx = canvas.getContext("2d");
+        // TODO: Understand this.  This moves the particle start.
         width = 400;
         height = 400;
         particles = [];
@@ -83,6 +84,7 @@ function game() {
         tail++;
         xGoal = Math.floor(Math.random() * tileSize);
         yGoal = Math.floor(Math.random() * tileSize);
+        // TODO: This is where the new goal location is after you get it.
         console.log(xGoal + ", " + yGoal);
         update();
     }
