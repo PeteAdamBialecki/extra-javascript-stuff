@@ -78,13 +78,20 @@ footer h5, footer span, footer i {
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
+#restart-game {
+    position: absolute;
+}
+
+#begin-game {
+    position: initial;
+}
+
 #begin-game, #restart-game {
     width: 200px;
     background-color: #6693dd;
     border-radius: 8px;
     color: #fff;
     padding: 25px;
-    position: absolute;
     left: 0;
     right: 0;
     margin: 0 auto;
