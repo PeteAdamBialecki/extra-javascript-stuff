@@ -84,7 +84,7 @@ footer h5, footer span, footer i {
     border-radius: 8px;
     color: #fff;
     padding: 25px;
-    position: initial;
+    position: absolute;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -202,6 +202,8 @@ circle {
     display: none;
     font-size: 30px;
     position: absolute;
+    font-weight: bold;
+    text-shadow: 2px 2px 30px black;
     z-index: 100;
     top: -60px;
     left: 0;
