@@ -1,5 +1,9 @@
 
-// Game Logic
+
+$(document).ready(function() {
+    var e = $.Event('keydown', { keyCode: 39 });// right arrow key
+    $(document).trigger(e);
+});
 
 window.onload = function () {
     canv = document.getElementById("snakeContainer");
@@ -21,41 +25,6 @@ trail = [];
 // Tail
 tail = 1;
 function game() {
-    vector = {
-        vectorX: xGoal,
-        vectorY: yGoal,
-        create: function (xGoal, yGoal) { var obj = Object.create(this); obj.vectorY = yGoal; obj.vectorX = xGoal; return obj; },
-        getX: function () { return this.vectorX },
-        getY: function () { return this.vectorY },
-        setX: function (value) { this.vectorX = value; },
-        setY: function (value) { this.vectorY = value; },
-        getLength: function () { return Math.sqrt(this.vectorX * this.vectorX + this.vectorY * this.vectorY) },
-        getAngle: function () { return Math.atan2(this.vectorY, this.vectorX) },
-        setAngle: function (angle) { length = this.getLength(); this.vectorY = Math.cos(angle) * length; this.vectorX = Math.sin(angle) * length; },
-        setLength: function (length) { angle = this.getAngle(); this.vectorY = Math.cos(angle) * length; this.vectorX = Math.sin(angle) * length; },
-        add: function (v2) { vect = this.create(this.vectorX + v2.vectorX, this.vectorY + v2.vectorY); return vect; },
-        subtract: function (v2) { vect = this.create(this.vectorX - v2.vectorX, this.vectorY - v2.vectorY); return vect; },
-        multiply: function (value) { return vector.create(this.vectorX * value, this.vectorY * value) },
-        divide: function (value) { return vector.create(this.vectorX / value, this.vectorY / value) },
-        scale: function (value) { this.vectorX = this.vectorX * value; this.vectorY = this.vectorY * value; },
-        addTo: function (v2) { this.vectorX = this.vectorX + v2.vectorX; this.vectorY = this.vectorY + v2.vectorY },
-        subtractFrom: function (v2) { this.vectorX = this.vectorX - v2.vectorX; this.vectorY = this.vectorY - v2.vectorY }
-    }
-    particle = {
-        velocity: null,
-        position: null,
-        create: function (xGoal, yGoal, speed, angle) {
-            var obj = Object.create(this);
-            obj.velocity = vector.create(0, 0);
-            obj.velocity.setLength(speed);
-            obj.velocity.setAngle(angle);
-            obj.position = vector.create(xGoal, yGoal);
-            return obj;
-        },
-        update: function () {
-            this.position.addTo(this.velocity);
-        }
-    }
     xPosition += xVelocity;
     yPosition += yVelocity;
     if (xPosition < 0) {
@@ -78,6 +47,7 @@ function game() {
         ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
         if (trail[i].x == xPosition && trail[i].y == yPosition) {
             document.getElementById("scoreNumber").innerHTML = "Go";
+            document.getElementById("scoreNumber").style.padding = "5px 5px 1px 12px";
             tail = 1;
             if (trail.length > 1) {
                 document.getElementById("failMessage").style.display = "block";
@@ -91,38 +61,10 @@ function game() {
     }
 
     if (xGoal == xPosition && yGoal == yPosition) {
-        function update() {
-            for (var i = 0; i < numparticles; i++) {
-                ctx.fillStyle = "gray";
-                particles[i].update();
-                ctx.beginPath();
-                ctx.arc(particles[i].position.getX(), particles[i].position.getY(), 10, 20, 2 * Math.PI, false);
-                ctx.fill();
-                ctx.closePath();
-            }
-            requestAnimationFrame(update);
-        }
-        // TODO: Start figuring this section out...
-        console.log(xGoal + ", " + yGoal);
-        canvas = document.getElementById("snakeContainer");
-        ctx = canvas.getContext("2d");
-        // TODO: Understand this.  This moves the particle start.
-        particles = [];
-        numparticles = 50;
-
-        width = xGoal * 2;
-        height = yGoal * 2;
-        for (i = 0; i < numparticles; i++) {
-            particles.push(particle.create(xGoal, yGoal, (Math.random() * 10) + 1, Math.random() * Math.PI * 2))
-        }
         document.getElementById("scoreNumber").innerHTML = trail.length + 1;
         tail++;
         xGoal = Math.floor(Math.random() * tileSize);
         yGoal = Math.floor(Math.random() * tileSize);
-        // TODO: This is where the new goal location is after you get it.
-        console.log("Before xy " + xGoal + ", " + yGoal);
-        console.log("Before WH " + width + ", " + height);
-        update();
     }
     ctx.fillStyle = "red";
     ctx.fillRect(xGoal * gridSize, yGoal * gridSize, gridSize - 2, gridSize - 2);
@@ -131,6 +73,7 @@ function game() {
 function keyPush(evt) {
     document.getElementById("failMessage").style.display = "none";
     document.getElementById("gameScore").style.visibility = "visible";
+    document.getElementById("scoreNumber").style.padding = "5px 5px 1px 22px";
     document.getElementById("scoreNumber").innerHTML = trail.length;
     switch (evt.keyCode) {
         case 37:
@@ -150,8 +93,4 @@ function keyPush(evt) {
             yVelocity = 1;
             break;
     }
-}
-
-function degreeToRadians(value) {
-    return (value / 360) * 2 * Math.PI;
 }
