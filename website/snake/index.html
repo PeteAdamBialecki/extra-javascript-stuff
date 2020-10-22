@@ -7,8 +7,10 @@
     <script src="js/popper.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/bootstrap.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/scoreboard.css">
+    <link rel="stylesheet" href="css/game.css">
+    <script src="js/game.js"></script>
+    <script src="js/scoreboard.js"></script>
 </head>
 
 <body class="snake-background">
@@ -16,19 +18,33 @@
         <div class="row" id="snakeGame">
             <h1 class="text-center">SNAKE!</h1>
             <h2 class="text-center">JavaScript!</h2>
+            <br>
         </div>
         <div id="failMessage" class="row" style="display: none;">
             <div id="failMessageContainer" class="col-12">
-                    <span id="failSpan">FAIL!!!</span>
+                <span id="failSpan">FAIL!!!</span>
             </div>
         </div>
-        <div class="row">
-            <canvas id="snakeContainer" width="780" height="780"></canvas>
+        <div id="gameAndScores">
+            <div class="row">
+                <div>
+                    <canvas id="snakeContainer" width="780" height="780"></canvas>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <div id="container"></div>
+                </div>
+            </div>
+
         </div>
         <div id="gameScore" class="row">
             <h3 id="scoreNumber" clas="text-primary">1</h3>
         </div>
     </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js'></script>
+    <script src="js/scoreboard.js"></script>
 </body>
 
 </html>
