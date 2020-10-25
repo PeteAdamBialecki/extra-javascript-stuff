@@ -12,7 +12,7 @@ const courses = [
 
 app.get("/", function(req, res) {
   //when we get an http get request to the root/homepage
-  res.send("Hello World");
+  res.send("Again, is this working or am I completely lost?");
 });
 
 //when we route to /courses
