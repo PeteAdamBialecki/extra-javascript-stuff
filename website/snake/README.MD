@@ -4,7 +4,7 @@
 
 Check out the [mongoDB Setup](https://docs.mlab.com/) page when creating or starting a new database connections or editing data.  To connect, run the following command:
 
-        mongo "mongodb+srv://cluster0.imsfy.mongodb.net/JavaScriptSnakGame" --username PeteAdamBialeckiTesting
+        mongo url (enter here at a later date)
 
 Sample data insert:
 
