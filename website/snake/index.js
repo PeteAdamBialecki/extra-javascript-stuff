@@ -1,86 +1,141 @@
-const PORT = process.env.PORT || 3000;
-const express = require("express");
-const app = express();
 
+
+// Import necessary packages
+const express = require('express');
+const bodyParser = require('body-parser');
+var mongoose = require('mongoose'); 
+
+mongoose
+    .connect(process.env.MONGO_URI, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+    })
+    .then(() => console.log('DB Connected!'))
+    .catch(err => {
+        console.log("Error: " + err);
+    });
+
+// create and configure the express app
+const PORT = process.env.PORT || 3000;
+const app = express();
 app.use(express.json());
 
-const courses = [
-  { id: 1, name: "Algorithms" },
-  { id: 2, name: "Software Engineering" },
-  { id: 3, name: "Human Computer Interaction" }
-];
+// Database Connection Info
+const MongoClient = require('mongodb').MongoClient;
 
-app.get("/", function(req, res) {
-  //when we get an http get request to the root/homepage
-  res.send("Again, is this working or am I completely lost?");
+// the URL we copied from earlier. Replace username and password with what you created in the initial steps
+const url = 'mongodb://sweetgame:sweetgame1@ds135156.mlab.com:35156/sweetgame';
+let db;
+
+// The index route
+app.get('/', function (req, res) {
+    res.send('Sweet Game Leaderboard API!');
 });
 
-//when we route to /courses
-app.get("/courses", function(req, res) {
-  res.send(courses); //respond with the array of courses
-});
+// Connect to the database with [url]
+(async () => {
+    let client = await MongoClient.connect(
+        url,
+        { useNewUrlParser: true }
+    );
 
-//To get a specific course, we need to define a parameter id
-app.get("/courses/:id", function(req, res) {
-  const course = courses.find(c => c.id === parseInt(req.params.id));
+    db = client.db('Players');
 
-  //if the course does not exist return status 404 (not found)
-  if (!course)
-      return res
-          .status(404)
-          .send("The course with the given id was not found");
+    app.listen(PORT, async function () {
+        console.log(`Listening on Port ${PORT}`);
+        if (db) {
+            console.log('Database is Connected!');
+        }
+    });
+})();
 
-  //return the object
-  res.send(course);
-});
 
-//using the http post request we can create a new course
-app.post("/courses", function(req, res) {
-  //create a course object
-  const course = {
-      id: courses.length + 1,
-      name: req.body.name
-  };
 
-  //add the course to the array
-  courses.push(course);
 
-  //return the course
-  res.send(course);
-});
 
-app.put("/courses/:id", function(req, res) {
-  //get the course
-  const course = courses.find(c => c.id === parseInt(req.params.id));
+// const PORT = process.env.PORT || 3000;
+// const express = require("express");
+// const app = express();
 
-  if (!course)
-      return res
-          .status(404)
-          .send("The course with the given id was not found");
+// app.use(express.json());
 
-  //update the course
-  course.name = req.body.name;
+// const courses = [
+//   { id: 1, name: "Algorithms" },
+//   { id: 2, name: "Software Engineering" },
+//   { id: 3, name: "Human Computer Interaction" }
+// ];
 
-  //return the updated object
-  res.send(course);
-});
+// app.get("/", function(req, res) {
+//   //when we get an http get request to the root/homepage
+//   res.send("Again, is this working or am I completely lost?");
+// });
 
-app.put("/courses/:id", function(req, res) {
-  //get the course
-  const course = courses.find(c => c.id === parseInt(req.params.id));
+// //when we route to /courses
+// app.get("/courses", function(req, res) {
+//   res.send(courses); //respond with the array of courses
+// });
 
-  if (!course)
-      return res
-          .status(404)
-          .send("The course with the given id was not found");
+// //To get a specific course, we need to define a parameter id
+// app.get("/courses/:id", function(req, res) {
+//   const course = courses.find(c => c.id === parseInt(req.params.id));
 
-  //update the course
-  course.name = req.body.name;
+//   //if the course does not exist return status 404 (not found)
+//   if (!course)
+//       return res
+//           .status(404)
+//           .send("The course with the given id was not found");
 
-  //returns the updated object
-  res.send(course);
-});
+//   //return the object
+//   res.send(course);
+// });
 
-app.listen(PORT, function() {
-  console.log(`Listening on Port ${PORT}`);
-});
+// //using the http post request we can create a new course
+// app.post("/courses", function(req, res) {
+//   //create a course object
+//   const course = {
+//       id: courses.length + 1,
+//       name: req.body.name
+//   };
+
+//   //add the course to the array
+//   courses.push(course);
+
+//   //return the course
+//   res.send(course);
+// });
+
+// app.put("/courses/:id", function(req, res) {
+//   //get the course
+//   const course = courses.find(c => c.id === parseInt(req.params.id));
+
+//   if (!course)
+//       return res
+//           .status(404)
+//           .send("The course with the given id was not found");
+
+//   //update the course
+//   course.name = req.body.name;
+
+//   //return the updated object
+//   res.send(course);
+// });
+
+// app.put("/courses/:id", function(req, res) {
+//   //get the course
+//   const course = courses.find(c => c.id === parseInt(req.params.id));
+
+//   if (!course)
+//       return res
+//           .status(404)
+//           .send("The course with the given id was not found");
+
+//   //update the course
+//   course.name = req.body.name;
+
+//   //returns the updated object
+//   res.send(course);
+// });
+
+// app.listen(PORT, function() {
+//   console.log(`Listening on Port ${PORT}`);
+// });

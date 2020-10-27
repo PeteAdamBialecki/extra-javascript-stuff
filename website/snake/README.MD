@@ -1,5 +1,19 @@
 # **JavaScript Snake Game Notes**
 
+## **Connecting to MongoDB Database**
+
+Check out the [mongoDB Setup](https://docs.mlab.com/) page when creating or starting a new database connections or editing data.  To connect, run the following command:
+
+        mongo "mongodb+srv://cluster0.imsfy.mongodb.net/JavaScriptSnakGame" --username PeteAdamBialeckiTesting
+
+Sample data insert:
+
+        db.mynewcollection.insert({ "foo" : "bar" })
+
+To view data:
+
+        db.mynewcollection.find()
+
 ## **Heroku**
 
 Getting started.  Here are a few links that might help
