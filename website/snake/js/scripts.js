@@ -25,7 +25,7 @@ trail = [];
 // Tail
 tail = 1;
 function game() {
-    xPosition += xVelocity; 
+    xPosition += xVelocity;
     yPosition += yVelocity;
     if (xPosition < 0) {
         xPosition = tileSize - 1;
