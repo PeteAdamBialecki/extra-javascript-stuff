@@ -111,3 +111,7 @@ canvas {
     margin: -45px auto auto;
     border-radius: 10px;
 }
+
+.modal-content {
+    background: #efefef;
+}
