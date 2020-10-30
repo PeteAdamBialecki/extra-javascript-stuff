@@ -1,8 +1,11 @@
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     var e = $.Event('keydown', { keyCode: 39 });// right arrow key
     $(document).trigger(e);
+    setTimeout(function () {
+        $("#pageAlert").modal();
+    }, 100);
 });
 
 window.onload = function () {

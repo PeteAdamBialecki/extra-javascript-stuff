@@ -12,6 +12,39 @@
 </head>
 
 <body class="snake-background">
+    <div class="modal fade" id="pageAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a game of <i>Snake</i>, the classic game of moving a pixel and then having it grow every time you hit the goal.  Is is built using HTML, CSS, and JavaScript and is highly addictive.
+                    Here are some directions on how to play:
+                    <br>
+                        <ul>
+                            <li>You are the green pixel and your goal is to hit the red pixel.</li>
+                            <li>Controls (on your keyboard): Up, Down, Left, Right</li>
+                            <li>To start the game, simple press a directional button.</li>
+                            <li>Edges of the play board are connected so if you run off the edge, you will continue on the opposite side.  Check it out and you will get it.  Be careful of this when your snake starts to get really long.</li>
+                            <li>If your snake is moving in a direction and then you attempt to move in the opposite direction, you will automatically fail (e.g. moving upwards then hitting down; moving right and then hitting left, etc.)</li>
+                            <li>The length of your snake is measured in the top right in the white box.</li>
+                            <li>As the length of your snake gets longer everytime you hit the red, if you hit your self (run into a green pixel), you will fail.  BE CAREFUL.</li>
+                            <li>Most importantly, good luck and have fun!</li>
+                        </ul>
+                    More features to come so stay tuned including a leader board to track scores from multiple users.  If you like what you see and would like to learn more, please feel free to email me at "Peter.Adam.Bialecki@gmail.com".
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row" id="snakeGame">
             <h1 class="text-center">SNAKE!</h1>
@@ -19,7 +52,7 @@
         </div>
         <div id="failMessage" class="row" style="display: none;">
             <div id="failMessageContainer" class="col-12">
-                    <span id="failSpan">FAIL!!!</span>
+                <span id="failSpan">FAIL!!!</span>
             </div>
         </div>
         <div id="gameScore" class="row">
