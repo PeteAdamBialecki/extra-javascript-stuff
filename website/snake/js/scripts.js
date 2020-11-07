@@ -15,6 +15,17 @@ window.onload = function () {
     setInterval(game, 1000 / 10);
 }
 
+function gameIntroduction() {
+    myAudio.play();
+}
+
+var myAudio = new Audio('../sounds/8-snake-song-patakas-world.wav'); 
+myAudio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+myAudio.play();
+
 // Starter position
 xPosition = yPosition = 10;
 // Grid size and tile size
@@ -50,7 +61,7 @@ function game() {
         ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
         if (trail[i].x == xPosition && trail[i].y == yPosition) {
             document.getElementById("scoreNumber").innerHTML = "Go";
-            document.getElementById("scoreNumber").style.padding = "5px 5px 1px 12px";
+            document.getElementById("scoreNumber").style.margin = "auto";
             tail = 1;
             if (trail.length > 1) {
                 document.getElementById("failMessage").style.display = "block";
@@ -76,7 +87,7 @@ function game() {
 function keyPush(evt) {
     document.getElementById("failMessage").style.display = "none";
     document.getElementById("gameScore").style.visibility = "visible";
-    document.getElementById("scoreNumber").style.padding = "5px 5px 1px 22px";
+    document.getElementById("scoreNumber").style.margin = "auto";
     document.getElementById("scoreNumber").innerHTML = trail.length;
     switch (evt.keyCode) {
         case 37:
