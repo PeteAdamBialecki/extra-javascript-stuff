@@ -19,12 +19,11 @@ function gameIntroduction() {
     myAudio.play();
 }
 
-var myAudio = new Audio('../sounds/8-snake-song-patakas-world.wav'); 
-myAudio.addEventListener('ended', function() {
+var myAudio = new Audio('../sounds/8-snake-song-patakas-world.wav');
+myAudio.addEventListener('ended', function () {
     this.currentTime = 0;
     this.play();
 }, false);
-myAudio.play();
 
 // Starter position
 xPosition = yPosition = 10;
@@ -75,6 +74,7 @@ function game() {
     }
 
     if (xGoal == xPosition && yGoal == yPosition) {
+        eatingSound();
         document.getElementById("scoreNumber").innerHTML = trail.length + 1;
         tail++;
         xGoal = Math.floor(Math.random() * tileSize);
@@ -84,25 +84,48 @@ function game() {
     ctx.fillRect(xGoal * gridSize, yGoal * gridSize, gridSize - 2, gridSize - 2);
 }
 
+function upDownSnd() {
+    var sound = document.getElementById("upDownSnd");
+    sound.play()
+}
+
+function leftRightSnd() {
+    var sound = document.getElementById("leftRightSnd");
+    sound.play()
+}
+
+function eatingSound() {
+    var sound = document.getElementById("eatingSound");
+    sound.play()
+}
+
 function keyPush(evt) {
     document.getElementById("failMessage").style.display = "none";
     document.getElementById("gameScore").style.visibility = "visible";
     document.getElementById("scoreNumber").style.margin = "auto";
     document.getElementById("scoreNumber").innerHTML = trail.length;
     switch (evt.keyCode) {
+        // Left
         case 37:
+            leftRightSnd();
             xVelocity = -1;
             yVelocity = 0;
             break;
+        // Up
         case 38:
+            upDownSnd();
             xVelocity = 0;
             yVelocity = -1;
             break;
+        // Right
         case 39:
+            leftRightSnd();
             xVelocity = 1;
             yVelocity = 0;
             break;
+        // Down
         case 40:
+            upDownSnd();
             xVelocity = 0;
             yVelocity = 1;
             break;
