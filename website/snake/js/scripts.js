@@ -15,6 +15,17 @@ window.onload = function () {
     setInterval(game, 1000 / 10);
 }
 
+function gameIntroduction() {
+    backgroundMusic.play();
+}
+
+var backgroundMusic = new Audio('../sounds/8-snake-song-patakas-world.wav');
+backgroundMusic.volume = 0.5;
+backgroundMusic.addEventListener('ended', function () {
+    this.currentTime = 0;
+    this.play();
+}, false);
+
 // Starter position
 xPosition = yPosition = 10;
 // Grid size and tile size
@@ -50,10 +61,11 @@ function game() {
         ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
         if (trail[i].x == xPosition && trail[i].y == yPosition) {
             document.getElementById("scoreNumber").innerHTML = "Go";
-            document.getElementById("scoreNumber").style.padding = "5px 5px 1px 12px";
+            document.getElementById("scoreNumber").style.margin = "auto";
             tail = 1;
             if (trail.length > 1) {
                 document.getElementById("failMessage").style.display = "block";
+                failSound();
             }
         }
     }
@@ -64,6 +76,7 @@ function game() {
     }
 
     if (xGoal == xPosition && yGoal == yPosition) {
+        eatingSound();
         document.getElementById("scoreNumber").innerHTML = trail.length + 1;
         tail++;
         xGoal = Math.floor(Math.random() * tileSize);
@@ -73,25 +86,55 @@ function game() {
     ctx.fillRect(xGoal * gridSize, yGoal * gridSize, gridSize - 2, gridSize - 2);
 }
 
+function upDownSound() {
+    var upDownSound = document.getElementById("upDownSound");
+    upDownSound.play()
+}
+
+function leftRightSound() {
+    var leftRightSound = document.getElementById("leftRightSound");
+    leftRightSound.play()
+}
+
+function eatingSound() {
+    var eatingSound = document.getElementById("eatingSound");
+    eatingSound.volume = 0.5;
+    eatingSound.play()
+}
+
+function failSound() {
+    var failSound = document.getElementById("failSound");
+    failSound.volume = 0.5;
+    failSound.play()
+}
+
 function keyPush(evt) {
     document.getElementById("failMessage").style.display = "none";
     document.getElementById("gameScore").style.visibility = "visible";
-    document.getElementById("scoreNumber").style.padding = "5px 5px 1px 22px";
+    document.getElementById("scoreNumber").style.margin = "auto";
     document.getElementById("scoreNumber").innerHTML = trail.length;
     switch (evt.keyCode) {
+        // Left
         case 37:
+            leftRightSound();
             xVelocity = -1;
             yVelocity = 0;
             break;
+        // Up
         case 38:
+            upDownSound();
             xVelocity = 0;
             yVelocity = -1;
             break;
+        // Right
         case 39:
+            leftRightSound();
             xVelocity = 1;
             yVelocity = 0;
             break;
+        // Down
         case 40:
+            upDownSound();
             xVelocity = 0;
             yVelocity = 1;
             break;
