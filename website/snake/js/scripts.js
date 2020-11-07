@@ -16,11 +16,12 @@ window.onload = function () {
 }
 
 function gameIntroduction() {
-    myAudio.play();
+    backgroundMusic.play();
 }
 
-var myAudio = new Audio('../sounds/8-snake-song-patakas-world.wav');
-myAudio.addEventListener('ended', function () {
+var backgroundMusic = new Audio('../sounds/8-snake-song-patakas-world.wav');
+backgroundMusic.volume = 0.5;
+backgroundMusic.addEventListener('ended', function () {
     this.currentTime = 0;
     this.play();
 }, false);
@@ -64,6 +65,7 @@ function game() {
             tail = 1;
             if (trail.length > 1) {
                 document.getElementById("failMessage").style.display = "block";
+                failSound();
             }
         }
     }
@@ -84,19 +86,26 @@ function game() {
     ctx.fillRect(xGoal * gridSize, yGoal * gridSize, gridSize - 2, gridSize - 2);
 }
 
-function upDownSnd() {
-    var sound = document.getElementById("upDownSnd");
-    sound.play()
+function upDownSound() {
+    var upDownSound = document.getElementById("upDownSound");
+    upDownSound.play()
 }
 
-function leftRightSnd() {
-    var sound = document.getElementById("leftRightSnd");
-    sound.play()
+function leftRightSound() {
+    var leftRightSound = document.getElementById("leftRightSound");
+    leftRightSound.play()
 }
 
 function eatingSound() {
-    var sound = document.getElementById("eatingSound");
-    sound.play()
+    var eatingSound = document.getElementById("eatingSound");
+    eatingSound.volume = 0.5;
+    eatingSound.play()
+}
+
+function failSound() {
+    var failSound = document.getElementById("failSound");
+    failSound.volume = 0.5;
+    failSound.play()
 }
 
 function keyPush(evt) {
@@ -107,25 +116,25 @@ function keyPush(evt) {
     switch (evt.keyCode) {
         // Left
         case 37:
-            leftRightSnd();
+            leftRightSound();
             xVelocity = -1;
             yVelocity = 0;
             break;
         // Up
         case 38:
-            upDownSnd();
+            upDownSound();
             xVelocity = 0;
             yVelocity = -1;
             break;
         // Right
         case 39:
-            leftRightSnd();
+            leftRightSound();
             xVelocity = 1;
             yVelocity = 0;
             break;
         // Down
         case 40:
-            upDownSnd();
+            upDownSound();
             xVelocity = 0;
             yVelocity = 1;
             break;
