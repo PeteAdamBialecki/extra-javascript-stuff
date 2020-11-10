@@ -16,15 +16,9 @@ window.onload = function () {
 }
 
 function gameIntroduction() {
-    backgroundMusic.play();
+    document.getElementById("youtube-icon2").click();
 }
 
-var backgroundMusic = new Audio('../sounds/8-snake-song-patakas-world.wav');
-backgroundMusic.volume = 0.5;
-backgroundMusic.addEventListener('ended', function () {
-    this.currentTime = 0;
-    this.play();
-}, false);
 
 // Starter position
 xPosition = yPosition = 10;
@@ -98,13 +92,13 @@ function leftRightSound() {
 
 function eatingSound() {
     var eatingSound = document.getElementById("eatingSound");
-    eatingSound.volume = 0.5;
+    eatingSound.volume = 1;
     eatingSound.play()
 }
 
 function failSound() {
     var failSound = document.getElementById("failSound");
-    failSound.volume = 0.5;
+    failSound.volume = 1;
     failSound.play()
 }
 
@@ -138,5 +132,67 @@ function keyPush(evt) {
             xVelocity = 0;
             yVelocity = 1;
             break;
+    }
+}
+
+// Background Music
+
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player2;
+function onYouTubeIframeAPIReady() {
+
+    var ctrlq2 = document.getElementById("backgroundAudio");
+    ctrlq2.innerHTML = '<img id="youtube-icon2" src=""/><div id="youtube-player2"></div>';
+    ctrlq2.style.cssText = 'width:150px;margin:2em auto;cursor:pointer;cursor:hand;display:none';
+    ctrlq2.onclick = toggleAudio2;
+
+    player2 = new YT.Player('youtube-player2', {
+        height: '0',
+        width: '0',
+        videoId: ctrlq2.dataset.video,
+        playerVars: {
+            autoplay: ctrlq2.dataset.autoplay,
+            loop: ctrlq2.dataset.loop,
+        },
+        events: {
+            'onReady': onPlayerReady2,
+            'onStateChange': onPlayerStateChange2
+        }
+    });
+}
+
+function togglePlayButton2(play) {
+    var backgroundMusic = document.getElementById("youtube-icon2");
+    backgroundMusic.volume = 0.1;
+    backgroundMusic.src = play ? "../img/stop.png" : "../img/play.png";
+}
+
+function toggleAudio2() {
+    if (player2.getPlayerState() == 1 || player2.getPlayerState() == 3) {
+        player2.pauseVideo();
+        togglePlayButton2(false);
+    } else {
+        player2.playVideo();
+        togglePlayButton2(true);
+    }
+}
+
+function onPlayerReady2(event) {
+    player2.setPlaybackQuality("small");
+    document.getElementById("backgroundAudio").style.display = "block";
+    togglePlayButton2(player2.getPlayerState() !== 5);
+}
+
+function onPlayerStateChange2(event) {
+    if (event.data === 0) {
+        togglePlayButton2(false);
     }
 }
