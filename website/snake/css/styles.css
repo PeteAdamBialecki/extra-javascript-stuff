@@ -115,3 +115,14 @@ canvas {
 .modal-content {
     background: #efefef;
 }
+
+#backgroundAudioCont {
+    width: 0;
+    height: 0;
+}
+
+#youtube-icon2 {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
