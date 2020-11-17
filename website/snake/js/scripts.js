@@ -171,7 +171,6 @@ function onYouTubeIframeAPIReady() {
 
 function togglePlayButton2(play) {
     var backgroundMusic = document.getElementById("youtube-icon2");
-    backgroundMusic.volume = 0.1;
     backgroundMusic.src = play ? "../img/stop.png" : "../img/play.png";
 }
 
